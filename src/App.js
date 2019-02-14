@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import logo from './logo.svg';
+import {Home} from './components/Home';
+import {
+  BrowserRouter as Router,
+  Route
+} from 'react-router-dom'
 
 class App extends Component {
   render() {
     return (
-      <div className={`${this.props.className} App`}>
-        <header>
-          <img src={logo} className="logo" alt="logo" />
-          <p>Welcome to caleb-larsen.com. I've only just begun my migration to React, so there's nothing here at the moment. Check back again soon!</p>
-        </header>
+      <div className={this.props.className}>
+        <Router className={this.props.className}>
+          <Route exact path="/" component={Home}/>
+        </Router>
       </div>
     );
   }
