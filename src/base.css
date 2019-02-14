@@ -1,0 +1,7 @@
+body {
+  /* Body should always take up the full viewport height and viewport width */
+  min-width: 100vw;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
