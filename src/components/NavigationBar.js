@@ -39,7 +39,7 @@ export default styled(NavigationBar)`
       transition: background-color 300ms;
 
       &.active, &:hover {
-          background-color: ${defaultTheme.lightPrimaryBackgroundColor};
+          background-color: ${props => props.theme.lightPrimaryBackgroundColor};
       }
     }
   }
