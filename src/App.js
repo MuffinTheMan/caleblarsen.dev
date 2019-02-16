@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import {Home} from './components/Home';
+import {About} from './components/About';
 import {
   BrowserRouter as Router,
   Route
@@ -9,11 +10,12 @@ import {
 class App extends Component {
   render() {
     return (
-      <div className={this.props.className}>
-        <Router className={this.props.className}>
+      <Router>
+        <div className={this.props.className}>
           <Route exact path="/" component={Home}/>
-        </Router>
-      </div>
+          <Route path="/about" component={About}/>
+        </div>
+      </Router>
     );
   }
 }
