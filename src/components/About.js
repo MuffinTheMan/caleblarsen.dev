@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
-export class About extends Component {
+export class About extends PureComponent {
   render() {
     return (
-      <p>Want to know about me? Maybe some day..</p>
+      <div>Want to know about me? Maybe some day..</div>
     );
   }
 }

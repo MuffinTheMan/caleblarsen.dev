@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import logo from '../logo.svg';
 
-export class Home extends Component {
+export class Home extends PureComponent {
   render() {
     return (
         <div>
