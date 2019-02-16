@@ -23,21 +23,13 @@ class App extends Component {
 export default styled(App)`
   color: ${props => props.theme.primaryFontColor};
   background-color: ${props => props.theme.backgroundColor};
+  height: 100vh;
+
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
 
   text-align: center;
-
-  header {
-    padding: 0 30px;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-  }
 
   img.logo {
     animation: App-logo-spin infinite 20s linear;
