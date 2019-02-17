@@ -3,11 +3,13 @@ import styled from 'styled-components';
 import {Home} from './Home';
 import {About} from './About';
 import {Samples} from './Samples';
+import NavigationBar from './NavigationBar';
+import TextInput from './formComponents/TextInput';
+import SubmitInput from './formComponents/SubmitInput';
 import {
   BrowserRouter as Router,
   Route
 } from 'react-router-dom'
-import NavigationBar from './NavigationBar';
 
 class StyledContainer extends Component {
   constructor(props) {
@@ -49,28 +51,32 @@ class StyledContainer extends Component {
             e.preventDefault();
             this.updateTheme();
           }}>
+            <h3>Real-time Theme Editor</h3>
+            <p>Enter any valid CSS color (hex, rbg, etc) and hit enter or click 'Update Theme' to see the theme update in real-time!</p>
             <label>
               Background Color:
-              <input type='text'
-                     value={this.state.theme.backgroundColor}
-                     onChange={e => this.setThemeProp('backgroundColor', e.target.value)}
+              <TextInput value={this.state.theme.backgroundColor}
+                         onChange={e => this.setThemeProp('backgroundColor', e.target.value)}
+                         theme={this.props.theme}
               />
             </label>
             <label>
               Primary Font Color:
-              <input type='text'
-                     value={this.state.theme.primaryFontColor}
-                     onChange={e => this.setThemeProp('primaryFontColor', e.target.value)}
+              <TextInput value={this.state.theme.primaryFontColor}
+                         onChange={e => this.setThemeProp('primaryFontColor', e.target.value)}
+                         theme={this.props.theme}
               />
             </label>
             <label>
               Light Primary Background Color:
-              <input type='text'
-                     value={this.state.theme.lightPrimaryBackgroundColor}
-                     onChange={e => this.setThemeProp('lightPrimaryBackgroundColor', e.target.value)}
+              <TextInput value={this.state.theme.lightPrimaryBackgroundColor}
+                         onChange={e => this.setThemeProp('lightPrimaryBackgroundColor', e.target.value)}
+                         theme={this.props.theme}
               />
             </label>
-            <input type="submit" value="Update Theme"/>
+            <SubmitInput value='Update Theme'
+                         theme={this.props.theme}
+            />
           </form>
           </div>
         </div>
@@ -85,7 +91,7 @@ export default styled(StyledContainer)`
 
   position: absolute;
   min-height: 100vh;
-  width: 100vw;
+  padding: 0 10vw;
 
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -101,6 +107,11 @@ export default styled(StyledContainer)`
       text-align: left;
       border: solid ${props => props.theme.lightPrimaryBackgroundColor} 2px;
       padding: 25px;
+      max-width: 500px;
+
+      h3 {
+        margin-top: 0;
+      }
 
       label {
         display: block;
