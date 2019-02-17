@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import {Home} from './Home';
 import {About} from './About';
+import {Samples} from './Samples';
 import {
   BrowserRouter as Router,
   Route
@@ -41,6 +42,7 @@ class StyledContainer extends Component {
           <NavigationBar theme={this.props.theme}/>
           <Route exact path="/" component={Home}/>
           <Route exact path="/about" component={About}/>
+          <Route exact path="/samples" component={Samples}/>
 
           <div className='formContainer'>
           <form onSubmit={e => {

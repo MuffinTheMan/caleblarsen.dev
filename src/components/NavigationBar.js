@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
-import {defaultTheme} from '../constants/themes'
 
 // activeClassName will not properly update if this is a PureComponent
 class NavigationBar extends Component {
@@ -19,6 +18,7 @@ class NavigationBar extends Component {
         <ul>
           <NavLink to='/' {...this.sharedProps}><li>Home</li></NavLink>
           <NavLink to='/about' {...this.sharedProps}><li>About</li></NavLink>
+          <NavLink to='/samples' {...this.sharedProps}><li>Samples</li></NavLink>
         </ul>
       </nav>
     );
