@@ -6,6 +6,7 @@ import {Samples} from './Samples';
 import NavigationBar from './NavigationBar';
 import TextInput from './formComponents/TextInput';
 import SubmitInput from './formComponents/SubmitInput';
+import CheckboxInput from './formComponents/CheckboxInput';
 import {
   BrowserRouter as Router,
   Route
@@ -18,8 +19,9 @@ class StyledContainer extends Component {
     this.state = {
       theme: {
         backgroundColor: this.props.theme.backgroundColor,
-        primaryFontColor: this.props.theme.primaryFontColor,
-        lightPrimaryBackgroundColor: this.props.theme.lightPrimaryBackgroundColor
+        primary: this.props.theme.primary,
+        alternatePrimary: this.props.theme.alternatePrimary,
+        roundedBorders: this.props.theme.roundedBorders,
       }
     }
   }
@@ -38,6 +40,7 @@ class StyledContainer extends Component {
   }
 
   render() {
+    console.log(this.props.theme)
     return (
       <Router>
         <div className={this.props.className}>
@@ -62,17 +65,24 @@ class StyledContainer extends Component {
                 />
               </label>
               <label>
-                Primary Font Color:
-                <TextInput value={this.state.theme.primaryFontColor}
-                          onChange={e => this.setThemeProp('primaryFontColor', e.target.value)}
+                Primary Color:
+                <TextInput value={this.state.theme.primary}
+                          onChange={e => this.setThemeProp('primary', e.target.value)}
                           theme={this.props.theme}
                 />
               </label>
               <label>
-                Light Primary Background Color:
-                <TextInput value={this.state.theme.lightPrimaryBackgroundColor}
-                          onChange={e => this.setThemeProp('lightPrimaryBackgroundColor', e.target.value)}
+                Alternate Primary Color:
+                <TextInput value={this.state.theme.alternatePrimary}
+                          onChange={e => this.setThemeProp('alternatePrimary', e.target.value)}
                           theme={this.props.theme}
+                />
+              </label>
+              <label>
+                Rounded Borders?
+                <CheckboxInput checked={this.state.theme.roundedBorders}
+                               onChange={e => this.setThemeProp('roundedBorders', e.target.checked)}
+                               theme={this.props.theme}
                 />
               </label>
               <SubmitInput value='Update Theme'
@@ -88,7 +98,7 @@ class StyledContainer extends Component {
 }
 
 export default styled(StyledContainer)`
-  color: ${props => props.theme.primaryFontColor};
+  color: ${props => props.theme.primary};
   background-color: ${props => props.theme.backgroundColor};
 
   position: absolute;
@@ -115,7 +125,8 @@ export default styled(StyledContainer)`
       form {
         display: inline-block;
         text-align: left;
-        border: solid ${props => props.theme.lightPrimaryBackgroundColor} 2px;
+        border: solid ${props => props.theme.alternatePrimary} 2px;
+        ${props => props.theme.roundedBorders ? 'border-radius: 5px' : null};
         padding: 25px;
         max-width: 500px;
 
@@ -139,7 +150,7 @@ export default styled(StyledContainer)`
   a {
     text-decoration: none;
     &, &:visited {
-      color: ${props => props.theme.primaryFontColor};
+      color: ${props => props.theme.primary};
     }
   }
 

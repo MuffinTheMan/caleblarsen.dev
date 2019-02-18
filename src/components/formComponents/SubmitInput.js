@@ -10,14 +10,15 @@ class SubmitInput extends PureComponent {
 }
 
 export default styled(SubmitInput)`
-  border: solid ${props => props.theme.lightPrimaryBackgroundColor} 1px;
+  border: solid ${props => props.theme.alternatePrimary} 1px;
+  ${props => props.theme.roundedBorders ? 'border-radius: 5px' : null};
   padding: 10px;
   font-size: 1rem;
   color: ${props => props.theme.backgroundColor};
-  background-color: ${props => props.theme.lightPrimaryBackgroundColor};
+  background-color: ${props => props.theme.alternatePrimary};
 
   &:hover {
-    color: ${props => props.theme.primaryFontColor};
+    color: ${props => props.theme.primary};
     background-color: ${props => props.theme.backgroundColor};
     cursor: pointer;
   }

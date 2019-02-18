@@ -11,7 +11,8 @@ class TextInput extends PureComponent {
 
 export default styled(TextInput)`
     border: solid #dddddd 1px;
+    ${props => props.theme.roundedBorders ? 'border-radius: 5px' : null};
     padding: 10px;
     font-size: 1rem;
-    color: ${props => props.theme.primaryFontColor}
+    color: ${props => props.theme.primary}
 `;

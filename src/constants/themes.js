@@ -1,7 +1,8 @@
 export const lightTheme = {
     backgroundColor: '#eeeeee',
-    lightPrimaryBackgroundColor: '#877cb0',
-    primaryFontColor: '#11073b'
+    primary: '#11073b',
+    alternatePrimary: '#877cb0',
+    roundedBorders: true,
 };
 
 export const defaultTheme = lightTheme;
