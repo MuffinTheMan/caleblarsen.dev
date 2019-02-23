@@ -29,30 +29,35 @@ class NavigationBar extends Component {
 export default styled(NavigationBar)`
   position: relative;
   z-index: 2;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  background-color: ${props => props.theme.alternatePrimary};
+  box-shadow: 0 1px 6px;
 
   ul {
     padding: 0;
+    margin: 0;
     list-style-type: none;
 
     a {
-      &:first-child {
-        border-radius: ${props => props.theme.roundedBorders ? '5px 0 0 5px' : '0'};
-      }
-      &:last-child {
-        border-radius: ${props => props.theme.roundedBorders ? '0 5px 5px 0' : '0'};
-      }
-      &:not(:first-child) {
-        border-left: none;
-      }
-
       display: inline-block;
-      padding: 10px 30px;
+      padding: 15px 50px;
       transition: background-color 300ms;
-      border: solid ${props => props.theme.alternatePrimary} 1px;
+      transform: skew(-16deg);
+      background-color: ${props => props.theme.alternatePrimary};
 
       &.active, &:hover {
-          color: ${props => props.theme.backgroundColor};
-          background-color: ${props => props.theme.alternatePrimary};
+          li {
+            color: ${props => props.theme.alternatePrimary};
+          }
+          background-color: ${props => props.theme.backgroundColor};
+      }
+
+      li {
+        color: ${props => props.theme.backgroundColor};
+        transform: skew(16deg);
       }
     }
   }

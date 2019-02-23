@@ -4,92 +4,27 @@ import {Home} from './Home';
 import {About} from './About';
 import {Samples} from './Samples';
 import NavigationBar from './NavigationBar';
-import TextInput from './formComponents/TextInput';
-import SubmitInput from './formComponents/SubmitInput';
-import CheckboxInput from './formComponents/CheckboxInput';
 import {
   BrowserRouter as Router,
   Route
 } from 'react-router-dom'
 
 class StyledContainer extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      theme: {
-        backgroundColor: this.props.theme.backgroundColor,
-        primary: this.props.theme.primary,
-        alternatePrimary: this.props.theme.alternatePrimary,
-        roundedBorders: this.props.theme.roundedBorders,
-      }
-    }
-  }
-  updateTheme() {
-    this.props.updateTheme(this.state.theme);
-  }
-
-  setThemeProp(prop, value) {
-    this.setState(state => {
-      const theme = Object.assign({}, state.theme);
-      theme[prop] = value;
-      return {
-        theme
-      };
-    })
-  }
-
   render() {
-    console.log(this.props.theme)
     return (
       <Router>
         <div className={this.props.className}>
           <div className='main-content'>
             <NavigationBar theme={this.props.theme}/>
-            <Route exact path="/" component={Home}/>
+            <Route exact
+                   path='/'
+                   render={() => <Home theme={this.props.theme}
+                                       setThemeProp={(prop, value) => this.setThemeProp(prop, value)}
+                                       updateTheme={(theme) => this.props.updateTheme(theme)}
+                                  />}
+            />
             <Route exact path="/about" component={About}/>
             <Route exact path="/samples" component={Samples}/>
-
-            <div className='formContainer'>
-            <form onSubmit={e => {
-              e.preventDefault();
-              this.updateTheme();
-            }}>
-              <h3>Real-time Theme Editor</h3>
-              <p>Enter any valid CSS color (hex, rbg, etc) and hit enter or click 'Update Theme' to see the theme update in real-time!</p>
-              <label>
-                Background Color:
-                <TextInput value={this.state.theme.backgroundColor}
-                          onChange={e => this.setThemeProp('backgroundColor', e.target.value)}
-                          theme={this.props.theme}
-                />
-              </label>
-              <label>
-                Primary Color:
-                <TextInput value={this.state.theme.primary}
-                          onChange={e => this.setThemeProp('primary', e.target.value)}
-                          theme={this.props.theme}
-                />
-              </label>
-              <label>
-                Alternate Primary Color:
-                <TextInput value={this.state.theme.alternatePrimary}
-                          onChange={e => this.setThemeProp('alternatePrimary', e.target.value)}
-                          theme={this.props.theme}
-                />
-              </label>
-              <label>
-                Rounded Borders?
-                <CheckboxInput checked={this.state.theme.roundedBorders}
-                               onChange={e => this.setThemeProp('roundedBorders', e.target.checked)}
-                               theme={this.props.theme}
-                />
-              </label>
-              <SubmitInput value='Update Theme'
-                          theme={this.props.theme}
-              />
-            </form>
-            </div>
           </div>
         </div>
       </Router>
@@ -112,7 +47,7 @@ export default styled(StyledContainer)`
   text-align: center;
 
   div.main-content {
-    margin: 0 10vw;
+    margin: 80px 10vw 0 10vw;
 
     img.logo {
       animation: App-logo-spin infinite 20s linear;
