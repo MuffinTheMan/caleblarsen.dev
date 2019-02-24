@@ -8,6 +8,10 @@ export class Home extends PureComponent {
     constructor(props) {
     super(props);
 
+    this.themeUpdateTimeout = null;
+    // Track if theme has changed since last calling this.props.updateTheme()
+    this.hasThemeChanged = false;
+
     this.state = {
       theme: {
         backgroundColor: this.props.theme.backgroundColor,
@@ -18,14 +22,30 @@ export class Home extends PureComponent {
     }
   }
 
+  updateTheme() {
+    if (this.hasThemeChanged) {
+      this.props.updateTheme(this.state.theme);
+      this.hasThemeChanged = false;
+    }
+  }
+
   setThemeProp(prop, value) {
+    this.hasThemeChanged = true;
+
     this.setState(state => {
       const theme = Object.assign({}, state.theme);
       theme[prop] = value;
       return {
         theme
       };
-    })
+    });
+
+    // Update theme automatically after 2 seconds of inactivity following a state.theme change
+    clearTimeout(this.themeUpdateTimeout);
+    this.themeUpdateTimeout = setTimeout(() => {
+      this.updateTheme();
+    }, 2000,);
+
   }
 
   render() {
@@ -37,10 +57,10 @@ export class Home extends PureComponent {
             <div className='formContainer'>
               <form onSubmit={e => {
                 e.preventDefault();
-                this.props.updateTheme(this.state.theme);
+                this.updateTheme();
               }}>
                 <h3>Real-time Theme Editor</h3>
-                <p>Enter any valid CSS color (hex, rbg, etc) and hit enter or click 'Update Theme' to see the theme update in real-time!</p>
+                <p>Enter any valid CSS color (hex, rbg, etc) and hit enter or click 'Update Theme' (or just wait a couple seconds) to see the theme update in real-time!</p>
                 <label>
                   Background Color:
                   <TextInput value={this.state.theme.backgroundColor}
