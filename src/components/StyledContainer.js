@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import {Home} from './Home';
-import {About} from './About';
+import About from './About';
 import {Samples} from './Samples';
 import NavigationBar from './NavigationBar';
 import {
