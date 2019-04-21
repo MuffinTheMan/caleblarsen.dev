@@ -52,7 +52,8 @@ export class Home extends PureComponent {
     return (
         <div>
             <img src={logo} className="logo" alt="logo" />
-            <p>Welcome to caleb-larsen.com. I've only just begun my migration to React, so there's not much here at the moment (except for this amazing theme editor below). Check back again soon!</p>
+            <p>Welcome to my playground. I've only recently begun my migration to React, so there's not much here at the moment (except for this amazing theme editor below). Check back again soon!</p>
+            <p>For the record, I'm no designer...so I'm sorry that this site isn't exactly pleasing to the eye :(</p>
 
             <div className='formContainer'>
               <form onSubmit={e => {
