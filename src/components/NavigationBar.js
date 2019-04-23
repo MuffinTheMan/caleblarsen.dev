@@ -19,7 +19,7 @@ class NavigationBar extends Component {
           <NavLink to='/' {...this.sharedProps}><li>Home</li></NavLink>
           <NavLink to='/about' {...this.sharedProps}><li>About</li></NavLink>
           <NavLink to='/samples' {...this.sharedProps}><li>Samples</li></NavLink>
-          <a href='https://github.com/MuffinTheMan/caleb-larsen.com' target='_blank' rel='noopener noreferrer'><li>Source Code</li></a>
+          <a href='https://github.com/MuffinTheMan/caleblarsen.dev' target='_blank' rel='noopener noreferrer'><li>Source Code</li></a>
         </ul>
       </nav>
     );
