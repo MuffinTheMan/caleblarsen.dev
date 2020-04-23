@@ -1,10 +1,6 @@
-<script>
-	export let name;
-</script>
-
 <main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+	<h1>Howdy.</h1>
+	<p>So I decided to toss my site and rewrite it with <a href="https://svelte.dev/" target="_blank" rel="nofollow">Svelte</a>. The good thing is that my site wasn't much to look at before anyway, so let's see how this goes! Source code for this site is on <a href="https://github.com/MuffinTheMan/caleblarsen.dev" target="_blank" rel="nofollow">GitHub</a>.</p>
 </main>
 
 <style>
