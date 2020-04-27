@@ -6,9 +6,53 @@
 
 	<title>caleblarsen.dev</title>
 
-	<link rel='icon' type='image/png' href='/favicon.png'>
-	<link rel='stylesheet' href='/global.css'>
+	<link rel='icon' type='image/png' href='/icon.min.png'>
 	<link rel='stylesheet' href='/build/bundle.css'>
+
+	<style>
+		body {
+			position: relative;
+			width: 100vw;
+			min-height: 100vh;
+			color: #333;
+			margin: 0;
+			padding: 0;
+			font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+		}
+
+		a {
+			color: rgb(0,100,200);
+			text-decoration: none;
+		}
+
+		a:hover {
+			text-decoration: underline;
+		}
+
+		a:visited {
+			color: rgb(0,80,160);
+		}
+
+		main {
+			text-align: center;
+			padding: 1em;
+			max-width: 90vw;
+			margin: 0 auto;
+		}
+	
+		h1 {
+			color: #ff3e00;
+			text-transform: uppercase;
+			font-size: 4em;
+			font-weight: 100;
+		}
+	
+		@media (min-width: 640px) {
+			main {
+				max-width: 1280px;
+			}
+		}
+	</style>
 
 	<script defer src='/build/bundle.js'></script>
 </head>
