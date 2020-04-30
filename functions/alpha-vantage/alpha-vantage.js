@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-const API_KEY = 'demo'; // TODO replace with actual key from ENV
+const API_KEY = process.env.ALPHA_VANTAGE_API_KEY;
 
 exports.handler = function(event) {
   const params = event.queryStringParameters;
